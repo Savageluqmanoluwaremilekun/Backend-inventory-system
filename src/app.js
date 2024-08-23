@@ -8,6 +8,9 @@ app.use(express.json());
 app.use("/admin", adminRouter);
 app.use("/auth" , authRouter);
 app.use("/products", productsRouter);
+app.get("/", (req, res) => {
+    res.status(200).send("Welcome to our API")
+})
 app.use("*/", (req, res) => {
     res.status(404).json({message: "Route not found"})
 });
